@@ -57,21 +57,25 @@ with col1:
     analyze_btn = st.button("view analysis", type="primary")
 
 # --- 4. Agent Setup ---
+# --- 4. Agent Setup (FIXED FOR CLOUD) ---
 agent = Agent(
     name="Stock Analyst",
-    # FIX: Using Llama 3.1 instead of 3.3 (More stable for tools)
-    model=Groq(id="llama-3.3-70b-versatile", api_key=groq_api_key),
+    model=Groq(id="llama-3.1-70b-versatile", api_key=groq_api_key),
     tools=[
         DuckDuckGo(), 
         YFinanceTools(stock_price=True, analyst_recommendations=True, stock_fundamentals=True)
     ],
     instructions=[
-        "You are a financial analyst.",
-        "Use tables to display data.",
-        "Always include sources.",
-        "Give a clear Buy/Sell recommendation.",
-        # FIX: Added strict instruction to prevent tool errors
-        "Important: Do not output any text or explanation before calling a tool. Just call the tool directly."
+        "You are a Senior Financial Analyst.",
+        "Your goal is to generate a comprehensive stock report.",
+        "1. First, search for the latest news and sentiment.",
+        "2. Then, get stock fundamentals and price data.",
+        "3. Finally, combine everything into a structured report.",
+        "Important: Use tables for data.",
+        "Important: Give a clear Buy/Sell/Hold recommendation.",
+        # --- CRITICAL FIXES FOR TOOL CALLING ERROR ---
+        "CRITICAL: Do not use XML tags like <function>. Use standard JSON for tool calls.",
+        "CRITICAL: If you need to call a tool, just output the JSON. Do not write text before the tool call."
     ],
     show_tool_calls=True,
     markdown=True,

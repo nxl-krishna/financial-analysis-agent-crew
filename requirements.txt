@@ -1,5 +1,8 @@
-phidata
+streamlit
+phidata>=2.4.25
+groq
 yfinance
 duckduckgo-search
-groq
+fpdf2
 python-dotenv
+packaging
