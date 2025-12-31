@@ -60,7 +60,7 @@ with col1:
 # --- 4. Agent Setup (FIXED FOR CLOUD) ---
 agent = Agent(
     name="Stock Analyst",
-    model=Groq(id="llama-3.1-70b-versatile", api_key=groq_api_key),
+    model=Groq(id="llama-3.3-70b-versatile", api_key=groq_api_key),
     tools=[
         DuckDuckGo(), 
         YFinanceTools(stock_price=True, analyst_recommendations=True, stock_fundamentals=True)

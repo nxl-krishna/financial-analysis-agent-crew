@@ -1,8 +1,16 @@
 streamlit
+<<<<<<< HEAD
 phidata>=2.4.25
+=======
+phidata
+>>>>>>> 54c8c61b87a6d0cda661dcfba13d23f0b7dd6ad5
 groq
 yfinance
 duckduckgo-search
 fpdf2
 python-dotenv
+<<<<<<< HEAD
 packaging
+=======
+packaging
+>>>>>>> 54c8c61b87a6d0cda661dcfba13d23f0b7dd6ad5
